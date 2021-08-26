@@ -7,7 +7,7 @@ BASE_PATH = Path(__file__).resolve().parent
 TITLE = "MarioParty"
 OUTPUT_DIRECTORY = BASE_PATH.joinpath('OUTPUT')
 LANG = 'en'  # 'en' or 'da'
-TEX_PATH = "C:\\texlive\\2021\\bin\\win32\\xelatex"  # Use this if XeTeX is not part of your system's path
+TEX_PATH = "C:\\texlive\\2021\\bin\\win32\\pdflatex"
 ########################################################################################################################
 # Language settings for correct grammar
 

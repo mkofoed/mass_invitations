@@ -11,19 +11,19 @@ class GenerateInvitations:
         self.create_directories()
 
     @staticmethod
+    def load_tex_template() -> str:
+        with open(TEX_TEMPLATE_FILE, encoding='utf8') as f:
+            return f.read()
+
+    @staticmethod
     def load_invitees() -> str:
         with open(INVITEES_FILE) as f:
             invitees = f.readlines()
         yield from invitees
 
-    @staticmethod
-    def load_tex_template() -> str:
-        with open(TEX_TEMPLATE_FILE, encoding='utf8') as f:
-            return f.read()
-
     def generate_invitations(self):
         for names_line in self.invitees:
-            names_line_list = [x.strip() for x in names_line.split(',')]
+            names_line_list = [x.strip() for x in names_line.split(',') if x.strip() != '']
             file_name = names_line.replace(',', '').replace(' ', '_').replace('\n', '')
             file_name = f'{TITLE}__{file_name}.tex'
             tex = self.replace_text(names_line_list)
