@@ -1,0 +1,34 @@
+\documentclass{article}
+\pagestyle{empty}
+\usepackage{geometry,tikz}
+\geometry{a6paper,landscape,hmargin={1cm,1cm},vmargin={1cm,1cm}}
+\usetikzlibrary{fadings}
+\tikzfading[name=fade right,
+left color=transparent!0,
+right color=transparent!100]
+\setlength\parindent{0pt}
+\begin{document}
+\begin{tikzpicture}[overlay,remember picture]
+  \node[anchor=east,inner sep=0pt] (pic) at (current page.east)
+    {\includegraphics[height=\pdfpageheight]{mario}};
+  \fill[white,path fading=fade right] (pic.north west) rectangle (pic.south east);
+\end{tikzpicture}%
+\obeylines%
+
+\bigbreak
+\textit{%
+  Dear {{ name }},
+  \bigskip
+  We're having a party
+  and would like to see {{ you }}
+  \bigskip
+  It takes place at Chocolate
+  Island on the 5th of June
+  \bigskip
+  We're looking very much
+  forward to seeing {{ you }}
+  \bigskip
+  \bigskip
+  Mario \& Luigi
+}
+\end{document}

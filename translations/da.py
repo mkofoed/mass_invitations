@@ -1,0 +1,2 @@
+YOU_SINGULAR = 'dig'
+YOU_PLURAL = 'jer'
